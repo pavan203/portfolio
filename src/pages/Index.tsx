@@ -1,9 +1,13 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, Mail, Phone, Linkedin, Github, Download, Calendar, MapPin, Code, Database, Cloud, Settings } from "lucide-react";
+import {
+  ChevronDown, Mail, Linkedin, Download, Calendar,
+  MapPin, Code, Database, Cloud, Settings, Moon
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card, CardContent, CardDescription, CardHeader, CardTitle
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const Index = () => {
@@ -11,7 +15,18 @@ const Index = () => {
 
   useEffect(() => {
     setIsVisible(true);
+    document.documentElement.classList.add("light");
+    localStorage.setItem("theme", "light");
   }, []);
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/Pavan_Resume.pdf";
+    link.download = "Venkat_Pavan_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const experiences = [
     {
@@ -27,7 +42,7 @@ const Index = () => {
       ]
     },
     {
-      title: "Graduate Assistant", 
+      title: "Graduate Assistant",
       company: "University of Missouri",
       period: "Jan 2024 – Dec 2024",
       location: "Missouri, USA",
@@ -41,7 +56,7 @@ const Index = () => {
     {
       title: "Systems Engineer",
       company: "Infosys",
-      period: "Mar 2021 – Dec 2022", 
+      period: "Mar 2021 – Dec 2022",
       location: "Hyderabad, India",
       highlights: [
         "Designed scalable backend systems with Spring Boot, improving response efficiency by 30%",
@@ -69,15 +84,32 @@ const Index = () => {
     },
     {
       degree: "Bachelor's Degree",
-      school: "Anil Neerukonda Institute of Technology and Sciences", 
+      school: "Anil Neerukonda Institute of Technology and Sciences",
       period: "Aug 2016 - Sept 2020"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 dark:bg-gradient-to-br dark:from-gray-100 dark:via-blue-100 dark:to-gray-100">
+      {/* Navbar */}
+      <nav className="w-full bg-transparent py-6 px-8 flex items-center justify-between">
+        {/* Logo/Name */}
+        <div className="text-2xl font-bold">
+          <a href="#home" className="text-purple-700 dark:text-purple-700">Pavan</a>
+        </div>
+        {/* Navigation Links */}
+        <div className="flex items-center gap-10">
+          <a href="#about" className="text-gray-200 hover:text-purple-400 font-medium transition">About</a>
+          <a href="#experience" className="text-gray-200 hover:text-purple-400 font-medium transition">Experience</a>
+          <a href="#skills" className="text-gray-200 hover:text-purple-400 font-medium transition">Skills</a>
+          <a href="#projects" className="text-gray-200 hover:text-purple-400 font-medium transition">Projects</a>
+          <a href="#education" className="text-gray-200 hover:text-purple-400 font-medium transition">Education</a>
+          <a href="#contact" className="text-gray-200 hover:text-purple-400 font-medium transition">Contact</a>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-6">
+      <section id="home" className="relative min-h-screen flex items-center justify-center px-6">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -113,26 +145,6 @@ const Index = () => {
           >
             Full-Stack Java Developer specializing in microservices, Spring Boot, and cloud technologies
           </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
-          >
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
-              <Mail className="mr-2 h-4 w-4" />
-              pavanpv02@gmail.com
-            </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black px-8 py-3">
-              <Phone className="mr-2 h-4 w-4" />
-              (573) 810-3386
-            </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black px-8 py-3">
-              <Linkedin className="mr-2 h-4 w-4" />
-              LinkedIn
-            </Button>
-          </motion.div>
         </motion.div>
         
         <motion.div
@@ -145,7 +157,7 @@ const Index = () => {
       </section>
 
       {/* Professional Summary */}
-      <section className="py-20 px-6 bg-black/20">
+      <section id="about" className="py-20 px-6 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -157,9 +169,9 @@ const Index = () => {
             <Card className="bg-white/10 backdrop-blur-sm border-white/20">
               <CardContent className="p-8">
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Full-stack Java developer with <strong className="text-blue-400">3+ years of experience</strong> delivering secure, 
-                  low-latency microservice platforms in high-throughput environments. Proficient in <strong className="text-blue-400">Core Java 8-17, 
-                  Spring Boot, AWS, Terraform, Docker/Kubernetes, Kafka, and CI/CD automation</strong>. Adept at end-to-end SDLC—from 
+                  Full-stack Java developer with 3+ years of experience delivering secure, 
+                  low-latency microservice platforms in high-throughput environments. Proficient in Core Java 8-17, 
+                  Spring Boot, AWS, Terraform, Docker/Kubernetes, Kafka, and CI/CD automation. Adept at end-to-end SDLC—from 
                   design and coding to production support—while championing observability, resiliency, and inclusive team culture.
                 </p>
               </CardContent>
@@ -169,7 +181,7 @@ const Index = () => {
       </section>
 
       {/* Work Experience */}
-      <section className="py-20 px-6">
+      <section id="experience" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -225,7 +237,7 @@ const Index = () => {
       </section>
 
       {/* Technical Skills */}
-      <section className="py-20 px-6 bg-black/20">
+      <section id="skills" className="py-20 px-6 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -271,7 +283,7 @@ const Index = () => {
       </section>
 
       {/* Education */}
-      <section className="py-20 px-6">
+      <section id="education" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -308,8 +320,90 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Projects */}
+      <section id="projects" className="py-20 px-6 bg-black/20">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-white mb-12 text-center">Projects</h2>
+            <div className="grid gap-8 md:grid-cols-2">
+              {/* Project 1 */}
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-white text-xl">Smart Task Manager</CardTitle>
+                  <CardDescription className="text-blue-400 text-lg">
+                    A full-stack productivity app for managing daily tasks and deadlines.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300 mb-4">
+                    Built with React, Spring Boot, and MongoDB. Features real-time collaboration and notifications.
+                  </p>
+                  <a
+                    href="https://github.com/your-github-link-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:underline"
+                  >
+                    GitHub Repository
+                  </a>
+                </CardContent>
+              </Card>
+              {/* Project 2 */}
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-white text-xl">Cloud Expense Tracker</CardTitle>
+                  <CardDescription className="text-blue-400 text-lg">
+                    Track and visualize expenses with cloud sync and analytics.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300 mb-4">
+                    Developed using React, AWS Lambda, and DynamoDB. Includes charts and export features.
+                  </p>
+                  <a
+                    href="https://github.com/your-github-link-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:underline"
+                  >
+                    GitHub Repository
+                  </a>
+                </CardContent>
+              </Card>
+              {/* Project 3 */}
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-white text-xl">Random Portfolio Project</CardTitle>
+                  <CardDescription className="text-blue-400 text-lg">
+                    A sample project description goes here for demonstration.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300 mb-4">
+                    This project showcases integration of various APIs and modern UI/UX practices.
+                  </p>
+                  <a
+                    href="https://github.com/your-github-link-3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:underline"
+                  >
+                    GitHub Repository
+                  </a>
+                </CardContent>
+              </Card>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section className="py-20 px-6 bg-black/20">
+      <section id="contact" className="py-20 px-6 bg-black/20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -322,15 +416,38 @@ const Index = () => {
               Ready to discuss opportunities in full-stack development and microservices architecture
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4">
-                <Mail className="mr-2 h-5 w-5" />
-                Email Me
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white text-white bg-white/10 hover:bg-white hover:text-black px-8 py-4"
+              >
+                <a href="mailto:pavanpv02@gmail.com">
+                  <Mail className="mr-2 h-5 w-5" />
+                  Email Me
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black px-8 py-4">
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn Profile
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white text-white bg-white/10 hover:bg-white hover:text-black px-8 py-4"
+              >
+                <a
+                  href="https://www.linkedin.com/in/pavan-poolla"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="mr-2 h-5 w-5" />
+                  LinkedIn Profile
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black px-8 py-4">
+              <Button
+                onClick={handleDownload}
+                size="lg"
+                variant="outline"
+                className="border-white text-white bg-white/10 hover:bg-white hover:text-black px-8 py-4"
+              >
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </Button>
@@ -343,3 +460,4 @@ const Index = () => {
 };
 
 export default Index;
+
