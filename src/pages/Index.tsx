@@ -334,17 +334,17 @@ const Index = () => {
               {/* Project 1 */}
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-white text-xl">Smart Task Manager</CardTitle>
+                  <CardTitle className="text-white text-xl">E-Commerce Website</CardTitle>
                   <CardDescription className="text-blue-400 text-lg">
-                    A full-stack productivity app for managing daily tasks and deadlines.
+                    This E-Commerce Web Application is a full-stack solution designed to manage and display product listings with image uploads, built using Spring Boot for the backend, React.js for the frontend, and PostgreSQL for data persistence.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300 mb-4">
-                    Built with React, Spring Boot, and MongoDB. Features real-time collaboration and notifications.
+                    Built with React, Spring Boot, and PostgreSQL. Features real-time collaboration and notifications.
                   </p>
                   <a
-                    href="https://github.com/your-github-link-1"
+                    href="https://github.com/pavan203/E_Commerce.git"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-400 hover:underline"
@@ -356,17 +356,17 @@ const Index = () => {
               {/* Project 2 */}
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-white text-xl">Cloud Expense Tracker</CardTitle>
+                  <CardTitle className="text-white text-xl">QuizApp</CardTitle>
                   <CardDescription className="text-blue-400 text-lg">
-                    Track and visualize expenses with cloud sync and analytics.
+                    QuizApp is a full-stack, containerized web application developed using Spring Boot, supporting both MongoDB and PostgreSQL for flexible data storage. It allows users to create, retrieve, and manage quiz questions by category, with dynamic quiz generation and in-memory caching using Redis for performance.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300 mb-4">
-                    Developed using React, AWS Lambda, and DynamoDB. Includes charts and export features.
+                    Developed using Spring Boot, React.js, PostgreSQL, Redis, Docker, Docker Compose and GitHub Actions for CI/CD.
                   </p>
                   <a
-                    href="https://github.com/your-github-link-2"
+                    href="https://github.com/pavan203/QuizApp.git"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-400 hover:underline"
@@ -378,17 +378,17 @@ const Index = () => {
               {/* Project 3 */}
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-white text-xl">Random Portfolio Project</CardTitle>
+                  <CardTitle className="text-white text-xl">Portfolio</CardTitle>
                   <CardDescription className="text-blue-400 text-lg">
-                    A sample project description goes here for demonstration.
+                    This is a personal portfolio website showcasing projects, skills, and experiences. Built using modern frontend tools, it delivers a clean, responsive, and fast user interface.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300 mb-4">
-                    This project showcases integration of various APIs and modern UI/UX practices.
+                    Developed using React.js, Vite, TypeScript, and Tailwind CSS, and deployed seamlessly via GitHub Pages.
                   </p>
                   <a
-                    href="https://github.com/your-github-link-3"
+                    href="https://github.com/pavan203/portfolio.git"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-400 hover:underline"
